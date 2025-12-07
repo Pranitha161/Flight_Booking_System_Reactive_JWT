@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 
 public interface UserService {
 
-	Mono<ResponseEntity<User>> addUser(User user);
+	Mono<ResponseEntity<String>> addUser(User user);
 
 	Mono<ResponseEntity<String>> login(LoginRequest loginRequest);
 
