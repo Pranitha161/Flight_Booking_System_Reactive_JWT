@@ -20,4 +20,6 @@ public interface UserService {
 	Mono<ResponseEntity<String>> deleteById(String passengerId);
 
 	Mono<ResponseEntity<String>> logout(String token);
+
+	Mono<User> signup(User user);
 }

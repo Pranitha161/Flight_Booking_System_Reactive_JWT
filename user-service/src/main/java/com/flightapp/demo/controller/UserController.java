@@ -1,5 +1,6 @@
 package com.flightapp.demo.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,22 +37,38 @@ public class UserController {
 	}
 
 	@GetMapping("/get/{passengerId}")
-	public Mono<ResponseEntity<User>> getPassengers(@PathVariable String passengerId) {
+	public Mono<ResponseEntity<User>> getPassengers(@RequestHeader("X-User-Id") String userId,
+			@RequestHeader("X-Roles") String roles, @PathVariable String passengerId) {
+		if (!userId.equals(passengerId) && !roles.contains("ROLE_ADMIN")) {
+			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
+		}
 		return userService.getPassengerById(passengerId);
 	}
 
 	@GetMapping("/get/email/{email}")
-	public Mono<ResponseEntity<User>> getPassenger(@PathVariable String email) {
+	public Mono<ResponseEntity<User>> getPassenger(@RequestHeader("X-Email") String userEmail,
+			@RequestHeader("X-Roles") String roles, @PathVariable String email) {
+		if (!userEmail.equals(email) && !roles.contains("ROLE_ADMIN")) {
+			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
+		}
 		return userService.getPassengerByEmail(email);
 	}
 
 	@PostMapping("/update/{passengerId}")
-	public Mono<ResponseEntity<User>> updatePassenger(@PathVariable String passengerId, @RequestBody @Valid User p) {
+	public Mono<ResponseEntity<User>> updatePassenger(@RequestHeader("X-User-Id") String userId,
+			@RequestHeader("X-Roles") String roles, @PathVariable String passengerId, @RequestBody @Valid User p) {
+		if (!userId.equals(passengerId) && !roles.contains("ROLE_ADMIN")) {
+			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
+		}
 		return userService.updateById(passengerId, p);
 	}
 
 	@DeleteMapping("/delete/{passengerId}")
-	public Mono<ResponseEntity<String>> deletePassenger(@PathVariable String passengerId) {
+	public Mono<ResponseEntity<String>> deletePassenger(@RequestHeader("X-Roles") String roles,
+			@PathVariable String passengerId) {
+		if (!roles.contains("ROLE_ADMIN")) {
+			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
+		}
 		return userService.deleteById(passengerId);
 	}
 
