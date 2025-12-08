@@ -7,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +14,7 @@ import com.flightapp.demo.entity.Booking;
 import com.flightapp.demo.entity.Flight;
 import com.flightapp.demo.entity.Seat;
 import com.flightapp.demo.entity.User;
+import com.flightapp.demo.event.BookingEventProducer;
 import com.flightapp.demo.feign.FlightClient;
 import com.flightapp.demo.feign.UserClient;
 import com.flightapp.demo.repository.BookingRepository;
@@ -30,7 +30,7 @@ public class BookingServiceImplementation implements BookingService {
 
 	private final BookingRepository bookingRepo;
 	private final FlightClient flightClient;
-//	private final BookingEventService eventProducer;
+	private final BookingEventProducer eventProducer;
 	private final UserClient userClient;
 
 	@Override
