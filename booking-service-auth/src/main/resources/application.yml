@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: booking-service-auth
+
+  kafka:
+    bootstrap-servers: localhost:9092  
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    consumer:
+      group-id: booking-service-group  
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"  
+        spring.json.use.type.headers: false 
+
+    listener:
+      ack-mode: record   
+
+  mail:
+    host: smtp.gmail.com        
+    port: 587                 
+    username: varakanthampranitha@gmail.com
+    password: zzolbmauinikyjnf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      flightServiceCircuitBreaker:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, circuitbreakers
