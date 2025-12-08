@@ -21,6 +21,7 @@ import com.flightapp.demo.repository.BookingRepository;
 import com.flightapp.demo.service.BookingService;
 
 import feign.FeignException;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
@@ -45,7 +46,7 @@ public class BookingServiceImplementation implements BookingService {
 				.switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
 	}
 
-//	@CircuitBreaker(name = "flightServiceCircuitBreaker", fallbackMethod = "fallbackDeleteBooking")
+	@CircuitBreaker(name = "flightServiceCircuitBreaker", fallbackMethod = "fallbackDeleteBooking")
 	public Mono<ResponseEntity<String>> deleteBookingByPnr(String pnr) {
 
 		return bookingRepo.findByPnr(pnr)
@@ -96,7 +97,7 @@ public class BookingServiceImplementation implements BookingService {
 				.body("Flight service unavailable while deleting booking with PNR: " + pnr));
 	}
 
-//	@CircuitBreaker(name = "flightServiceCircuitBreaker", fallbackMethod = "fallbackGetFlight")
+	@CircuitBreaker(name = "flightServiceCircuitBreaker", fallbackMethod = "fallbackGetFlight")
 	public Mono<ResponseEntity<String>> bookTicket(String flightId, Booking booking) {
 		final List<String> seatReq = booking.getSeatNumbers();
 		if (seatReq == null || seatReq.isEmpty()) {
