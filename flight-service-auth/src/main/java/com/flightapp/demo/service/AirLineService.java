@@ -12,4 +12,6 @@ public interface AirLineService {
 
 	Mono<ResponseEntity<AirLine>> getById(String id);
 
+	Mono<AirLine> addFlightToAirline(String airlineId, String flightId);
+
 }
