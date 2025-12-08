@@ -1,5 +1,7 @@
 package com.flightapp.demo.service.implementation;
 
+import java.util.ArrayList;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,18 @@ public class AirLineServiceImplementation implements AirLineService {
 	public Flux<AirLine> getAllAirlines() {
 		return airlineRepo.findAll();
 	}
+	@Override
+	public Mono<AirLine> addFlightToAirline(String airlineId, String flightId) {
+	    return airlineRepo.findById(airlineId) // Mono<Airline>
+	        .flatMap(airline -> {
+	            if (airline.getFlightIds() == null) {
+	                airline.setFlightIds(new ArrayList<>());
+	            }
+	            airline.getFlightIds().add(flightId);
+	            return airlineRepo.save(airline); // Mono<Airline>
+	        });
+	}
+
 
 	@Override
 	public Mono<ResponseEntity<AirLine>> getById(String id) {
