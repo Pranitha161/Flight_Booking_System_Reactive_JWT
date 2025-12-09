@@ -42,7 +42,7 @@ This project is a scalable, modular flight booking system built using Spring Boo
 
 ### Security
 - JWT-based authentication.
-- Role-based access enforced at Gateway and service level.
+- Role-based access enforced at Gateway and service level.(`ROLE_USER`, `ROLE_ADMIN`)
 
 ### Docker & Docker Compose
 
