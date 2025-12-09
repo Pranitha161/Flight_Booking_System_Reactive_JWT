@@ -34,7 +34,7 @@ This project is a scalable, modular flight booking system built using Spring Boo
 - **Producer** publishes booking events (`BOOKING_CREATED`, `BOOKING_DELETED`)
 - **Consumer** listens and sends email notifications via `JavaMailSender`
 
-### Resilience, Error Handling & Code Quality
+### Resilience4j, Error Handling & Code Quality
 
 - **Circuit Breaker**: Isolates failures and ensures graceful fallback in case of service downtime.  
 - **Global Exception Handling**: Provides consistent validation error responses across all services.  
