@@ -1,0 +1,403 @@
+kafka  | [2025-12-08 19:40:08,795] INFO [zk-broker-1-to-controller-alter-partition-channel-manager]: Shutdown completed (kafka.server.BrokerToControllerRequestThread)
+kafka  | [2025-12-08 19:40:08,797] INFO Broker to controller channel manager for alter-partition shutdown (kafka.server.BrokerToControllerChannelManagerImpl)
+kafka  | [2025-12-08 19:40:08,797] INFO [zk-broker-1-to-controller-forwarding-channel-manager]: Shutting down (kafka.server.BrokerToControllerRequestThread)
+kafka  | [2025-12-08 19:40:08,798] INFO [zk-broker-1-to-controller-forwarding-channel-manager]: Stopped (kafka.server.BrokerToControllerRequestThread)
+kafka  | [2025-12-08 19:40:08,798] INFO [zk-broker-1-to-controller-forwarding-channel-manager]: Shutdown completed (kafka.server.BrokerToControllerRequestThread)
+kafka  | [2025-12-08 19:40:08,799] INFO Broker to controller channel manager for forwarding shutdown (kafka.server.BrokerToControllerChannelManagerImpl)
+kafka  | [2025-12-08 19:40:08,800] INFO Shutting down. (kafka.log.LogManager)
+kafka  | [2025-12-08 19:40:08,801] INFO Shutting down the log cleaner. (kafka.log.LogCleaner)
+kafka  | [2025-12-08 19:40:08,802] INFO [kafka-log-cleaner-thread-0]: Shutting down (kafka.log.LogCleaner$CleanerThread)
+kafka  | [2025-12-08 19:40:08,803] INFO [kafka-log-cleaner-thread-0]: Shutdown completed (kafka.log.LogCleaner$CleanerThread)
+kafka  | [2025-12-08 19:40:08,803] INFO [kafka-log-cleaner-thread-0]: Stopped (kafka.log.LogCleaner$CleanerThread)
+kafka  | [2025-12-08 19:40:08,828] INFO Shutdown complete. (kafka.log.LogManager)
+kafka  | [2025-12-08 19:40:08,829] INFO [ControllerEventThread controllerId=1] Shutting down (kafka.controller.ControllerEventManager$ControllerEventThread)
+kafka  | [2025-12-08 19:40:08,830] INFO [ControllerEventThread controllerId=1] Shutdown completed (kafka.controller.ControllerEventManager$ControllerEventThread)
+kafka  | [2025-12-08 19:40:08,830] INFO [ControllerEventThread controllerId=1] Stopped (kafka.controller.ControllerEventManager$ControllerEventThread)
+kafka  | [2025-12-08 19:40:08,830] DEBUG [Controller id=1] Resigning (kafka.controller.KafkaController)
+kafka  | [2025-12-08 19:40:08,831] DEBUG [Controller id=1] Unregister BrokerModifications handler for Set(1) (kafka.controller.KafkaController)
+kafka  | [2025-12-08 19:40:08,832] INFO [PartitionStateMachine controllerId=1] Stopped partition state machine (kafka.controller.ZkPartitionStateMachine)
+kafka  | [2025-12-08 19:40:08,833] INFO [ReplicaStateMachine controllerId=1] Stopped replica state machine (kafka.controller.ZkReplicaStateMachine)
+kafka  | [2025-12-08 19:40:08,833] INFO [RequestSendThread controllerId=1] Shutting down (kafka.controller.RequestSendThread)
+kafka  | [2025-12-08 19:40:08,834] INFO [RequestSendThread controllerId=1] Shutdown completed (kafka.controller.RequestSendThread)
+kafka  | [2025-12-08 19:40:08,834] INFO [RequestSendThread controllerId=1] Stopped (kafka.controller.RequestSendThread)
+kafka  | [2025-12-08 19:40:08,837] INFO [Controller id=1] Resigned (kafka.controller.KafkaController)
+kafka  | [2025-12-08 19:40:08,839] INFO [feature-zk-node-event-process-thread]: Shutting down (kafka.server.FinalizedFeatureChangeListener$ChangeNotificationProcessorThread)
+kafka  | [2025-12-08 19:40:08,839] INFO [feature-zk-node-event-process-thread]: Shutdown completed (kafka.server.FinalizedFeatureChangeListener$ChangeNotificationProcessorThread)
+kafka  | [2025-12-08 19:40:08,839] INFO [feature-zk-node-event-process-thread]: Stopped (kafka.server.FinalizedFeatureChangeListener$ChangeNotificationProcessorThread)
+kafka  | [2025-12-08 19:40:08,842] INFO [ZooKeeperClient Kafka server] Closing. (kafka.zookeeper.ZooKeeperClient)
+kafka  | [2025-12-08 19:40:08,950] INFO Session: 0x100000f41fb0001 closed (org.apache.zookeeper.ZooKeeper)
+kafka  | [2025-12-08 19:40:08,950] INFO EventThread shut down for session: 0x100000f41fb0001 (org.apache.zookeeper.ClientCnxn)
+kafka  | [2025-12-08 19:40:08,952] INFO [ZooKeeperClient Kafka server] Closed. (kafka.zookeeper.ZooKeeperClient)
+kafka  | [2025-12-08 19:40:08,952] INFO [ThrottledChannelReaper-Fetch]: Shutting down (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,954] INFO [ThrottledChannelReaper-Fetch]: Stopped (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,954] INFO [ThrottledChannelReaper-Fetch]: Shutdown completed (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,954] INFO [ThrottledChannelReaper-Produce]: Shutting down (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,955] INFO [ThrottledChannelReaper-Produce]: Stopped (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,955] INFO [ThrottledChannelReaper-Produce]: Shutdown completed (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,955] INFO [ThrottledChannelReaper-Request]: Shutting down (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,956] INFO [ThrottledChannelReaper-Request]: Stopped (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,956] INFO [ThrottledChannelReaper-Request]: Shutdown completed (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,956] INFO [ThrottledChannelReaper-ControllerMutation]: Shutting down (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,956] INFO [ThrottledChannelReaper-ControllerMutation]: Stopped (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,956] INFO [ThrottledChannelReaper-ControllerMutation]: Shutdown completed (kafka.server.ClientQuotaManager$ThrottledChannelReaper)
+kafka  | [2025-12-08 19:40:08,958] INFO [SocketServer listenerType=ZK_BROKER, nodeId=1] Shutting down socket server (kafka.network.SocketServer)
+kafka  | [2025-12-08 19:40:08,968] INFO [SocketServer listenerType=ZK_BROKER, nodeId=1] Shutdown completed (kafka.network.SocketServer)
+kafka  | [2025-12-08 19:40:08,969] INFO Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics)
+kafka  | [2025-12-08 19:40:08,969] INFO Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics)
+kafka  | [2025-12-08 19:40:08,969] INFO Metrics reporters closed (org.apache.kafka.common.metrics.Metrics)
+kafka  | [2025-12-08 19:40:08,971] INFO Broker and topic stats closed (kafka.server.BrokerTopicStats)
+kafka  | [2025-12-08 19:40:08,972] INFO App info kafka.server for 1 unregistered (org.apache.kafka.common.utils.AppInfoParser)
+kafka  | [2025-12-08 19:40:08,973] INFO [KafkaServer id=1] shut down completed (kafka.server.KafkaServer)
+booking-service  | 	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+booking-service  | 	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+booking-service  | 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+booking-service  | 	... 22 more
+zookeeper        | [2025-12-08 19:18:49,328] INFO zookeeper.digest.enabled = true (org.apache.zookeeper.server.ZooKeeperServer)
+booking-service  | 
+zookeeper        | [2025-12-08 19:18:49,328] INFO zookeeper.closeSessionTxn.enabled = true (org.apache.zookeeper.server.ZooKeeperServer)
+booking-service  | 2025-12-08T19:40:06.915Z  WARN 1 --- [booking-service-auth] [foReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/BOOKING-SERVICE-AUTH": Connect to http://localhost:8761 failed: Connection refused
+booking-service  | 2025-12-08T19:40:06.915Z  WARN 1 --- [booking-service-auth] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_BOOKING-SERVICE-AUTH/a82edf68f275:booking-service-auth:8081 - registration failed Cannot execute request on any known server
+zookeeper        | [2025-12-08 19:18:49,328] INFO zookeeper.flushDelay=0 (org.apache.zookeeper.server.ZooKeeperServer)
+zookeeper        | [2025-12-08 19:18:49,328] INFO zookeeper.maxWriteQueuePollTime=0 (org.apache.zookeeper.server.ZooKeeperServer)
+booking-service  | 
+booking-service  | com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar!/:2.0.4]
+zookeeper        | [2025-12-08 19:18:49,328] INFO zookeeper.maxBatchSize=1000 (org.apache.zookeeper.server.ZooKeeperServer)
+zookeeper        | [2025-12-08 19:18:49,328] INFO zookeeper.intBufferStartingSizeBytes = 1024 (org.apache.zookeeper.server.ZooKeeperServer)
+zookeeper        | [2025-12-08 19:18:49,331] INFO Weighed connection throttling is disabled (org.apache.zookeeper.server.BlueThrottle)
+zookeeper        | [2025-12-08 19:18:49,337] INFO minSessionTimeout set to 4000 (org.apache.zookeeper.server.ZooKeeperServer)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.478+00:00"},"s":"I",  "c":"-",        "id":6371601, "ctx":"SignalHandler","msg":"Shutting down the FLE Crud thread pool"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.478+00:00"},"s":"I",  "c":"COMMAND",  "id":4784901, "ctx":"SignalHandler","msg":"Shutting down the MirrorMaestro"}
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar!/:2.0.4]
+zookeeper        | [2025-12-08 19:18:49,338] INFO maxSessionTimeout set to 40000 (org.apache.zookeeper.server.ZooKeeperServer)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.478+00:00"},"s":"I",  "c":"SHARDING", "id":4784902, "ctx":"SignalHandler","msg":"Shutting down the WaitForMajorityService"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.478+00:00"},"s":"I",  "c":"CONTROL",  "id":4784903, "ctx":"SignalHandler","msg":"Shutting down the LogicalSessionCache"}
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"NETWORK",  "id":20562,   "ctx":"SignalHandler","msg":"Shutdown: going to close listening sockets"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"NETWORK",  "id":23017,   "ctx":"listener","msg":"removing socket file","attr":{"path":"/tmp/mongodb-27017.sock"}}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"NETWORK",  "id":4784905, "ctx":"SignalHandler","msg":"Shutting down the global connection pool"}
+zookeeper        | [2025-12-08 19:18:49,343] INFO Response cache size is initialized with value 400. (org.apache.zookeeper.server.ResponseCache)
+zookeeper        | [2025-12-08 19:18:49,344] INFO Response cache size is initialized with value 400. (org.apache.zookeeper.server.ResponseCache)
+zookeeper        | [2025-12-08 19:18:49,347] INFO zookeeper.pathStats.slotCapacity = 60 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+booking-service  | 	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar!/:2.0.4]
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"CONTROL",  "id":4784906, "ctx":"SignalHandler","msg":"Shutting down the FlowControlTicketholder"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"-",        "id":20520,   "ctx":"SignalHandler","msg":"Stopping further Flow Control ticket acquisitions."}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"CONTROL",  "id":4784908, "ctx":"SignalHandler","msg":"Shutting down the PeriodicThreadToAbortExpiredTransactions"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"REPL",     "id":4784909, "ctx":"SignalHandler","msg":"Shutting down the ReplicationCoordinator"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"SHARDING", "id":4784910, "ctx":"SignalHandler","msg":"Shutting down the ShardingInitializationMongoD"}
+zookeeper        | [2025-12-08 19:18:49,348] INFO zookeeper.pathStats.slotDuration = 15 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+zookeeper        | [2025-12-08 19:18:49,348] INFO zookeeper.pathStats.maxDepth = 6 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.479+00:00"},"s":"I",  "c":"REPL",     "id":4784911, "ctx":"SignalHandler","msg":"Enqueuing the ReplicationStateTransitionLock for shutdown"}
+zookeeper        | [2025-12-08 19:18:49,348] INFO zookeeper.pathStats.initialDelay = 5 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+zookeeper        | [2025-12-08 19:18:49,348] INFO zookeeper.pathStats.delay = 5 (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+zookeeper        | [2025-12-08 19:18:49,348] INFO zookeeper.pathStats.enabled = false (org.apache.zookeeper.server.util.RequestPathMetricsCollector)
+zookeeper        | [2025-12-08 19:18:49,356] INFO The max bytes for all large requests are set to 104857600 (org.apache.zookeeper.server.ZooKeeperServer)
+booking-service  | 	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"-",        "id":4784912, "ctx":"SignalHandler","msg":"Killing all operations for shutdown"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"-",        "id":4695300, "ctx":"SignalHandler","msg":"Interrupted all currently running operations","attr":{"opsKilled":3}}
+booking-service  | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+booking-service  | 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+zookeeper        | [2025-12-08 19:18:49,357] INFO The large request threshold is set to -1 (org.apache.zookeeper.server.ZooKeeperServer)
+zookeeper        | [2025-12-08 19:18:49,357] INFO Created server with tickTime 2000 minSessionTimeout 4000 maxSessionTimeout 40000 clientPortListenBacklog -1 datadir /var/lib/zookeeper/log/version-2 snapdir /var/lib/zookeeper/data/version-2 (org.apache.zookeeper.server.ZooKeeperServer)
+zookeeper        | [2025-12-08 19:18:49,457] INFO Logging initialized @2000ms to org.eclipse.jetty.util.log.Slf4jLog (org.eclipse.jetty.util.log)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"TENANT_M", "id":5093807, "ctx":"SignalHandler","msg":"Shutting down all TenantMigrationAccessBlockers on global shutdown"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"COMMAND",  "id":4784913, "ctx":"SignalHandler","msg":"Shutting down all open transactions"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"REPL",     "id":4784914, "ctx":"SignalHandler","msg":"Acquiring the ReplicationStateTransitionLock for shutdown"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"INDEX",    "id":4784915, "ctx":"SignalHandler","msg":"Shutting down the IndexBuildsCoordinator"}
+zookeeper        | [2025-12-08 19:18:49,866] WARN o.e.j.s.ServletContextHandler@5c7bfdc1{/,null,STOPPED} contextPath ends with /* (org.eclipse.jetty.server.handler.ContextHandler)
+zookeeper        | [2025-12-08 19:18:49,867] WARN Empty contextPath (org.eclipse.jetty.server.handler.ContextHandler)
+booking-service  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+booking-service  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+booking-service  | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+booking-service  | 
+booking-service  | 2025-12-08T19:40:06.915Z  WARN 1 --- [booking-service-auth] [foReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+booking-service  | 
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"NETWORK",  "id":4784918, "ctx":"SignalHandler","msg":"Shutting down the ReplicaSetMonitor"}
+booking-service  | com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar!/:2.0.4]
+zookeeper        | [2025-12-08 19:18:49,951] INFO jetty-9.4.51.v20230217; built: 2023-02-17T08:19:37.309Z; git: b45c405e4544384de066f814ed42ae3dceacdd49; jvm 11.0.20+8-LTS (org.eclipse.jetty.server.Server)
+zookeeper        | [2025-12-08 19:18:50,096] INFO DefaultSessionIdManager workerName=node0 (org.eclipse.jetty.server.session)
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar!/:2.0.4]
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"SHARDING", "id":4784921, "ctx":"SignalHandler","msg":"Shutting down the MigrationUtilExecutor"}
+zookeeper        | [2025-12-08 19:18:50,096] INFO No SessionScavenger set, using defaults (org.eclipse.jetty.server.session)
+zookeeper        | [2025-12-08 19:18:50,106] INFO node0 Scavenging every 660000ms (org.eclipse.jetty.server.session)
+zookeeper        | [2025-12-08 19:18:50,125] WARN ServletContext@o.e.j.s.ServletContextHandler@5c7bfdc1{/,null,STARTING} has uncovered http methods for path: /* (org.eclipse.jetty.security.SecurityHandler)
+zookeeper        | [2025-12-08 19:18:50,165] INFO Started o.e.j.s.ServletContextHandler@5c7bfdc1{/,null,AVAILABLE} (org.eclipse.jetty.server.handler.ContextHandler)
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar!/:2.0.4]
+zookeeper        | [2025-12-08 19:18:50,253] INFO Started ServerConnector@5890e879{HTTP/1.1, (http/1.1)}{0.0.0.0:8080} (org.eclipse.jetty.server.AbstractConnector)
+zookeeper        | [2025-12-08 19:18:50,255] INFO Started @2799ms (org.eclipse.jetty.server.Server)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"ASIO",     "id":22582,   "ctx":"MigrationUtil-TaskExecutor","msg":"Killing all outstanding egress activity."}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"COMMAND",  "id":4784923, "ctx":"SignalHandler","msg":"Shutting down the ServiceEntryPoint"}
+booking-service  | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar!/:2.0.4]
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"CONTROL",  "id":4784927, "ctx":"SignalHandler","msg":"Shutting down the HealthLog"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"CONTROL",  "id":4784928, "ctx":"SignalHandler","msg":"Shutting down the TTL monitor"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"INDEX",    "id":3684100, "ctx":"SignalHandler","msg":"Shutting down TTL collection monitor thread"}
+booking-service  | 	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar!/:2.0.4]
+booking-service  | 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"INDEX",    "id":3684101, "ctx":"SignalHandler","msg":"Finished shutting down TTL collection monitor thread"}
+zookeeper        | [2025-12-08 19:18:50,261] INFO Started AdminServer on address 0.0.0.0, port 8080 and command URL /commands (org.apache.zookeeper.server.admin.JettyAdminServer)
+zookeeper        | [2025-12-08 19:18:50,281] INFO Using org.apache.zookeeper.server.NIOServerCnxnFactory as server connection factory (org.apache.zookeeper.server.ServerCnxnFactory)
+booking-service  | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+booking-service  | 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+booking-service  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+booking-service  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+booking-service  | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+booking-service  | 
+booking-service  | 2025-12-08T19:40:06.929Z  INFO 1 --- [booking-service-auth] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : mail-service-group: Consumer stopped
+booking-service  | 2025-12-08T19:40:06.933Z  INFO 1 --- [booking-service-auth] [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : mail-service-group: Consumer stopped
+booking-service  | 2025-12-08T19:40:06.933Z  INFO 1 --- [booking-service-auth] [ntainer#1-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : mail-service-group: Consumer stopped
+booking-service  | 2025-12-08T19:40:06.934Z  INFO 1 --- [booking-service-auth] [ntainer#1-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : mail-service-group: Consumer stopped
+booking-service  | 2025-12-08T19:40:06.934Z  INFO 1 --- [booking-service-auth] [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : mail-service-group: Consumer stopped
+zookeeper        | [2025-12-08 19:18:50,284] WARN maxCnxns is not configured, using default value 0. (org.apache.zookeeper.server.ServerCnxnFactory)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"CONTROL",  "id":6278511, "ctx":"SignalHandler","msg":"Shutting down the Change Stream Expired Pre-images Remover"}
+booking-service  | 2025-12-08T19:40:06.935Z  INFO 1 --- [booking-service-auth] [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : mail-service-group: Consumer stopped
+booking-service  | 2025-12-08T19:40:06.936Z  INFO 1 --- [booking-service-auth] [ionShutdownHook] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"CONTROL",  "id":4784929, "ctx":"SignalHandler","msg":"Acquiring the global lock for shutdown"}
+booking-service  | 2025-12-08T19:40:06.941Z  INFO 1 --- [booking-service-auth] [ netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+zookeeper        | [2025-12-08 19:18:50,292] INFO Configuring NIO connection handler with 10s sessionless connection timeout, 3 selector thread(s), 40 worker threads, and 64 kB direct buffers. (org.apache.zookeeper.server.NIOServerCnxnFactory)
+zookeeper        | [2025-12-08 19:18:50,297] INFO binding to port 0.0.0.0/0.0.0.0:2181 (org.apache.zookeeper.server.NIOServerCnxnFactory)
+zookeeper        | [2025-12-08 19:18:50,342] INFO Using org.apache.zookeeper.server.watch.WatchManager as watch manager (org.apache.zookeeper.server.watch.WatchManagerFactory)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"CONTROL",  "id":4784930, "ctx":"SignalHandler","msg":"Shutting down the storage engine"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.480+00:00"},"s":"I",  "c":"STORAGE",  "id":22320,   "ctx":"SignalHandler","msg":"Shutting down journal flusher thread"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":22321,   "ctx":"SignalHandler","msg":"Finished shutting down journal flusher thread"}
+zookeeper        | [2025-12-08 19:18:50,342] INFO Using org.apache.zookeeper.server.watch.WatchManager as watch manager (org.apache.zookeeper.server.watch.WatchManagerFactory)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":22322,   "ctx":"SignalHandler","msg":"Shutting down checkpoint thread"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":22323,   "ctx":"SignalHandler","msg":"Finished shutting down checkpoint thread"}
+zookeeper        | [2025-12-08 19:18:50,344] INFO zookeeper.snapshotSizeFactor = 0.33 (org.apache.zookeeper.server.ZKDatabase)
+zookeeper        | [2025-12-08 19:18:50,345] INFO zookeeper.commitLogCount=500 (org.apache.zookeeper.server.ZKDatabase)
+zookeeper        | [2025-12-08 19:18:50,366] INFO zookeeper.snapshot.compression.method = CHECKED (org.apache.zookeeper.server.persistence.SnapStream)
+zookeeper        | [2025-12-08 19:18:50,367] INFO Snapshotting: 0x0 to /var/lib/zookeeper/data/version-2/snapshot.0 (org.apache.zookeeper.server.persistence.FileTxnSnapLog)
+zookeeper        | [2025-12-08 19:18:50,379] INFO Snapshot loaded in 34 ms, highest zxid is 0x0, digest is 1371985504 (org.apache.zookeeper.server.ZKDatabase)
+zookeeper        | [2025-12-08 19:18:50,380] INFO Snapshotting: 0x0 to /var/lib/zookeeper/data/version-2/snapshot.0 (org.apache.zookeeper.server.persistence.FileTxnSnapLog)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":22261,   "ctx":"SignalHandler","msg":"Timestamp monitor shutting down"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":20282,   "ctx":"SignalHandler","msg":"Deregistering all the collections"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":22317,   "ctx":"SignalHandler","msg":"WiredTigerKVEngine shutting down"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":22318,   "ctx":"SignalHandler","msg":"Shutting down session sweeper thread"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.481+00:00"},"s":"I",  "c":"STORAGE",  "id":22319,   "ctx":"SignalHandler","msg":"Finished shutting down session sweeper thread"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.482+00:00"},"s":"I",  "c":"STORAGE",  "id":4795902, "ctx":"SignalHandler","msg":"Closing WiredTiger","attr":{"closeConfig":"leak_memory=true,"}}
+zookeeper        | [2025-12-08 19:18:50,381] INFO Snapshot taken in 1 ms (org.apache.zookeeper.server.ZooKeeperServer)
+zookeeper        | [2025-12-08 19:18:50,417] INFO zookeeper.request_throttler.shutdownTimeout = 10000 (org.apache.zookeeper.server.RequestThrottler)
+zookeeper        | [2025-12-08 19:18:50,419] INFO PrepRequestProcessor (sid:0) started, reconfigEnabled=false (org.apache.zookeeper.server.PrepRequestProcessor)
+zookeeper        | [2025-12-08 19:18:50,480] INFO Using checkIntervalMs=60000 maxPerMinute=10000 maxNeverUsedIntervalMs=0 (org.apache.zookeeper.server.ContainerManager)
+zookeeper        | [2025-12-08 19:18:50,484] INFO ZooKeeper audit is disabled. (org.apache.zookeeper.audit.ZKAuditProvider)
+zookeeper        | [2025-12-08 19:18:52,230] INFO Creating new log file: log.1 (org.apache.zookeeper.server.persistence.FileTxnLog)
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.482+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1765222808,"ts_usec":482340,"thread":"1:0x7e482d966640","session_name":"close_ckpt","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":6,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 76, snapshot max: 76 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 1"}}}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.500+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1765222808,"ts_usec":500081,"thread":"1:0x7e482d966640","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"shutdown checkpoint has successfully finished and ran for 17 milliseconds"}}}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.500+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"SignalHandler","msg":"WiredTiger message","attr":{"message":{"ts_sec":1765222808,"ts_usec":500362,"thread":"1:0x7e482d966640","session_name":"WT_CONNECTION.close","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"shutdown was completed successfully and took 18ms, including 0ms for the rollback to stable, and 17ms for the checkpoint."}}}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.514+00:00"},"s":"I",  "c":"STORAGE",  "id":4795901, "ctx":"SignalHandler","msg":"WiredTiger closed","attr":{"durationMillis":32}}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.514+00:00"},"s":"I",  "c":"STORAGE",  "id":22279,   "ctx":"SignalHandler","msg":"shutdown: removing fs lock..."}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.514+00:00"},"s":"I",  "c":"-",        "id":4784931, "ctx":"SignalHandler","msg":"Dropping the scope cache for shutdown"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.514+00:00"},"s":"I",  "c":"FTDC",     "id":20626,   "ctx":"SignalHandler","msg":"Shutting down full-time diagnostic data capture"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.518+00:00"},"s":"I",  "c":"CONTROL",  "id":20565,   "ctx":"SignalHandler","msg":"Now exiting"}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.518+00:00"},"s":"I",  "c":"CONTROL",  "id":8423404, "ctx":"SignalHandler","msg":"mongod shutdown complete","attr":{"Summary of time elapsed":{"Statistics":{"Enter terminal shutdown":"0 ms","Step down the replication coordinator for shutdown":"1 ms","Time spent in quiesce mode":"0 ms","Shut down FLE Crud subsystem":"0 ms","Shut down MirrorMaestro":"0 ms","Shut down WaitForMajorityService":"0 ms","Shut down the logical session cache":"0 ms","Shut down the transport layer":"1 ms","Shut down the global connection pool":"0 ms","Shut down the flow control ticket holder":"0 ms","Kill all operations for shutdown":"0 ms","Shut down all tenant migration access blockers on global shutdown":"0 ms","Shut down all open transactions":"0 ms","Acquire the RSTL for shutdown":"0 ms","Shut down the IndexBuildsCoordinator and wait for index builds to finish":"0 ms","Shut down the replica set monitor":"0 ms","Shut down the migration util executor":"0 ms","Shut down the health log":"0 ms","Shut down the TTL monitor":"0 ms","Shut down expired pre-images remover":"0 ms","Shut down the storage engine":"34 ms","Shut down full-time data capture":"0 ms","shutdownTask total elapsed time":"41 ms"}}}}
+mongo            | {"t":{"$date":"2025-12-08T19:40:08.518+00:00"},"s":"I",  "c":"CONTROL",  "id":23138,   "ctx":"SignalHandler","msg":"Shutting down","attr":{"exitCode":0}}
+user-service     | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+config-server    | 	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:88)
+config-server    | 	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+user-service     | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+user-service     | 
+user-service     | 2025-12-08T19:19:04.431Z  WARN 1 --- [user-service] [nfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+config-server    | 	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+config-server    | 	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$2(RestTemplateTransportClientFactory.java:145)
+config-server    | 	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+config-server    | 	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+config-server    | 	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+user-service     | 
+config-server    | 	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+user-service     | com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+config-server    | 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+user-service     | 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:77) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:820) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:121) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at com.netflix.discovery.InstanceInfoReplicator$1.run(InstanceInfoReplicator.java:101) ~[eureka-client-2.0.1.jar!/:2.0.1]
+user-service     | 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+user-service     | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+user-service     | 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+user-service     | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+config-server    | 	... 22 more
+config-server    | 
+user-service     | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+user-service     | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+user-service     | 
+user-service     | 2025-12-08T19:19:04.433Z  INFO 1 --- [user-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+config-server    | 2025-12-08T19:40:08.688Z  WARN 1 --- [config-server-flightbookingsystem] [foReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/CONFIG-SERVER-FLIGHTBOOKINGSYSTEM": Connect to http://localhost:8761 failed: Connection refused
+config-server    | 2025-12-08T19:40:08.689Z  WARN 1 --- [config-server-flightbookingsystem] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CONFIG-SERVER-FLIGHTBOOKINGSYSTEM/606b7c7de43d:config-server-flightbookingsystem:8888 - registration failed Cannot execute request on any known server
+config-server    | 
+user-service     | 2025-12-08T19:19:04.475Z  INFO 1 --- [user-service] [           main] c.flightapp.demo.UserServiceApplication  : Started UserServiceApplication in 24.545 seconds (process running for 27.321)
+user-service     | 2025-12-08T19:19:34.035Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+config-server    | com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+config-server    | 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server    | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server    | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar!/:2.0.4]
+user-service     | 2025-12-08T19:19:34.035Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+config-server    | 	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server    | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server    | 	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server    | 	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar!/:2.0.4]
+user-service     | 2025-12-08T19:19:34.035Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+config-server    | 	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server    | 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+config-server    | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+config-server    | 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+config-server    | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+user-service     | 2025-12-08T19:19:34.036Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+user-service     | 2025-12-08T19:19:34.036Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+config-server    | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+config-server    | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+config-server    | 
+config-server    | 2025-12-08T19:40:08.689Z  WARN 1 --- [config-server-flightbookingsystem] [foReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+user-service     | 2025-12-08T19:19:34.036Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+user-service     | 2025-12-08T19:19:34.036Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+user-service     | 2025-12-08T19:19:34.142Z  INFO 1 --- [user-service] [tbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/212b1a7ea22e:user-service:8083 - Re-registering apps/USER-SERVICE
+user-service      | 2025-12-08T19:19:34.142Z  INFO 1 --- [user-service] [tbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/212b1a7ea22e:user-service:8083: registering service...
+user-service      | 2025-12-08T19:19:34.144Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+config-server    | 
+config-server     | com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+service-registry  | 2025-12-08T19:22:07.445Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:23:07.446Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:24:07.447Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 6ms
+config-server     | 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server     | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+config-server     | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar!/:2.0.4]
+service-registry  | 2025-12-08T19:25:07.448Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 6ms
+api-gateway       | no main manifest attribute, in app.jar
+api-gateway       | no main manifest attribute, in app.jar
+api-gateway       | no main manifest attribute, in app.jar
+service-registry  | 2025-12-08T19:26:07.447Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 4ms
+service-registry  | 2025-12-08T19:27:07.448Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:28:07.449Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 6ms
+user-service      | 2025-12-08T19:19:34.164Z  INFO 1 --- [user-service] [tbeatExecutor-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/212b1a7ea22e:user-service:8083 - registration status: 204
+user-service      | 2025-12-08T19:20:04.146Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+user-service      | 2025-12-08T19:20:04.146Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+config-server     | 	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar!/:2.0.4]
+user-service      | 2025-12-08T19:20:04.146Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+flight-service    | 2025-12-08T19:37:33.009Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+flight-service    | 2025-12-08T19:37:33.039Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : HTTP PUT http://service-registry:8761/eureka/apps/FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082?status=UP&lastDirtyTimestamp=1765221602734
+flight-service    | 2025-12-08T19:37:33.040Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+service-registry  | 2025-12-08T19:29:07.449Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+flight-service    | 2025-12-08T19:37:33.049Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+service-registry  | 2025-12-08T19:30:07.450Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:31:07.451Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 6ms
+service-registry  | 2025-12-08T19:32:07.451Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:33:07.452Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:34:07.038Z  INFO 1 --- [service-registry-flightbookingsystem] [hresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 6
+service-registry  | 2025-12-08T19:34:07.453Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 6ms
+service-registry  | 2025-12-08T19:35:07.453Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+user-service      | 2025-12-08T19:20:04.146Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+user-service      | 2025-12-08T19:20:04.146Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+user-service      | 2025-12-08T19:20:04.146Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+user-service      | 2025-12-08T19:20:04.146Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+config-server     | 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar!/:2.0.4]
+user-service      | 2025-12-08T19:20:04.164Z  INFO 1 --- [user-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+flight-service    | 2025-12-08T19:38:03.010Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : HTTP GET http://service-registry:8761/eureka/apps/delta
+flight-service    | 2025-12-08T19:38:03.011Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:38:03.020Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+user-service      | 2025-12-08T19:24:02.200Z  INFO 1 --- [user-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+user-service      | 2025-12-08T19:29:02.175Z  INFO 1 --- [user-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+service-registry  | 2025-12-08T19:36:07.454Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:37:07.455Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+user-service      | 2025-12-08T19:34:02.151Z  INFO 1 --- [user-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+user-service      | 2025-12-08T19:39:02.127Z  INFO 1 --- [user-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+config-server     | 	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar!/:2.0.4]
+service-registry  | 2025-12-08T19:38:07.455Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:39:07.455Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+flight-service    | 2025-12-08T19:38:03.021Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+flight-service    | 2025-12-08T19:38:03.051Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : HTTP PUT http://service-registry:8761/eureka/apps/FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082?status=UP&lastDirtyTimestamp=1765221602734
+flight-service    | 2025-12-08T19:38:03.064Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+user-service      | 2025-12-08T19:40:06.867Z  INFO 1 --- [user-service] [ionShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+user-service      | 2025-12-08T19:40:06.867Z  INFO 1 --- [user-service] [ionShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1765222806867, current=DOWN, previous=UP]
+user-service      | 2025-12-08T19:40:06.868Z  INFO 1 --- [user-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/212b1a7ea22e:user-service:8083: registering service...
+user-service      | 2025-12-08T19:40:06.899Z  INFO 1 --- [user-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/212b1a7ea22e:user-service:8083 - registration status: 204
+service-registry  | 2025-12-08T19:40:06.894Z  INFO 1 --- [service-registry-flightbookingsystem] [nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance USER-SERVICE/212b1a7ea22e:user-service:8083 with status DOWN (replication=false)
+service-registry  | 2025-12-08T19:40:06.915Z  INFO 1 --- [service-registry-flightbookingsystem] [nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082 with status DOWN (replication=false)
+service-registry  | 2025-12-08T19:40:07.408Z  INFO 1 --- [service-registry-flightbookingsystem] [nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance USER-SERVICE/212b1a7ea22e:user-service:8083 with status DOWN (replication=true)
+config-server     | 	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar!/:2.0.4]
+service-registry  | 2025-12-08T19:40:07.412Z  INFO 1 --- [service-registry-flightbookingsystem] [nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082 with status DOWN (replication=true)
+flight-service    | 2025-12-08T19:38:03.072Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+flight-service    | 2025-12-08T19:38:33.021Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : HTTP GET http://service-registry:8761/eureka/apps/delta
+config-server     | 	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar!/:2.0.4]
+service-registry  | 2025-12-08T19:40:07.455Z  INFO 1 --- [service-registry-flightbookingsystem] [a-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+service-registry  | 2025-12-08T19:40:08.656Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SERVICE-REGISTRY-FLIGHTBOOKINGSYSTEM with eureka with status DOWN
+service-registry  | 2025-12-08T19:40:08.666Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+flight-service    | 2025-12-08T19:38:33.022Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:38:33.034Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+flight-service    | 2025-12-08T19:38:33.035Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+flight-service    | 2025-12-08T19:38:33.072Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : HTTP PUT http://service-registry:8761/eureka/apps/FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082?status=UP&lastDirtyTimestamp=1765221602734
+flight-service    | 2025-12-08T19:38:33.072Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:38:33.084Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+flight-service    | 2025-12-08T19:39:00.334Z  INFO 1 --- [flight-service-auth] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+flight-service    | 2025-12-08T19:39:03.035Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : HTTP GET http://service-registry:8761/eureka/apps/delta
+flight-service    | 2025-12-08T19:39:03.035Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+service-registry  | 2025-12-08T19:40:08.671Z  INFO 1 --- [service-registry-flightbookingsystem] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+service-registry  | 2025-12-08T19:40:08.737Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] o.s.c.n.e.server.EurekaServerBootstrap   : Shutting down Eureka Server..
+service-registry  | 2025-12-08T19:40:08.737Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shutting down ...
+service-registry  | 2025-12-08T19:40:08.745Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shut down
+service-registry  | 2025-12-08T19:40:08.746Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] o.s.c.n.e.server.EurekaServerBootstrap   : Eureka Service is now shutdown...
+service-registry  | 2025-12-08T19:40:08.746Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shutting down ...
+service-registry  | 2025-12-08T19:40:08.747Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shut down
+service-registry  | 2025-12-08T19:40:08.739Z ERROR 1 --- [service-registry-flightbookingsystem] [t-Conn-Cleaner2] c.n.d.s.t.j.EurekaJersey3ClientImpl      : Cannot clean connections
+flight-service    | 2025-12-08T19:39:03.045Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+flight-service    | 2025-12-08T19:39:03.045Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+flight-service    | 2025-12-08T19:39:03.084Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : HTTP PUT http://service-registry:8761/eureka/apps/FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082?status=UP&lastDirtyTimestamp=1765221602734
+config-server     | 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+config-server     | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+service-registry  | 
+service-registry  | java.lang.IllegalStateException: Client instance has been closed.
+flight-service    | 2025-12-08T19:39:03.084Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:39:03.094Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+service-registry  | 	at org.glassfish.jersey.internal.guava.Preconditions.checkState(Preconditions.java:169) ~[jersey-common-3.1.11.jar!/:na]
+service-registry  | 	at org.glassfish.jersey.client.JerseyClient.checkNotClosed(JerseyClient.java:248) ~[jersey-client-3.1.11.jar!/:na]
+service-registry  | 	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:363) ~[jersey-client-3.1.11.jar!/:na]
+config-server     | 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+config-server     | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+flight-service    | 2025-12-08T19:39:33.045Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : HTTP GET http://service-registry:8761/eureka/apps/delta
+flight-service    | 2025-12-08T19:39:33.046Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:39:33.052Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+service-registry  | 	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:54) ~[jersey-client-3.1.11.jar!/:na]
+flight-service    | 2025-12-08T19:39:33.052Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+config-server     | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+config-server     | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+config-server     | 
+service-registry  | 	at com.netflix.discovery.shared.transport.jersey3.EurekaJersey3ClientImpl$ConnectionCleanerTask.run(EurekaJersey3ClientImpl.java:338) ~[eureka-client-jersey3-2.0.4.jar!/:2.0.4]
+service-registry  | 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+config-server     | 2025-12-08T19:40:08.694Z  INFO 1 --- [config-server-flightbookingsystem] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+config-server     | 2025-12-08T19:40:08.749Z  INFO 1 --- [config-server-flightbookingsystem] [ionShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+flight-service    | 2025-12-08T19:39:33.093Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : HTTP PUT http://service-registry:8761/eureka/apps/FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082?status=UP&lastDirtyTimestamp=1765221602734
+service-registry  | 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+flight-service    | 2025-12-08T19:39:33.094Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+service-registry  | 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+service-registry  | 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+service-registry  | 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+service-registry  | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+service-registry  | 
+service-registry  | 2025-12-08T19:40:08.752Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+service-registry  | 2025-12-08T19:40:08.752Z  INFO 1 --- [service-registry-flightbookingsystem] [ionShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+flight-service    | 2025-12-08T19:39:33.102Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+flight-service    | 2025-12-08T19:40:03.052Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : HTTP GET http://service-registry:8761/eureka/apps/delta
+flight-service    | 2025-12-08T19:40:03.052Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:40:03.062Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+flight-service    | 2025-12-08T19:40:03.063Z DEBUG 1 --- [flight-service-auth] [reshExecutor-%d] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+flight-service    | 2025-12-08T19:40:03.102Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : HTTP PUT http://service-registry:8761/eureka/apps/FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082?status=UP&lastDirtyTimestamp=1765221602734
+flight-service    | 2025-12-08T19:40:03.102Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:40:03.112Z DEBUG 1 --- [flight-service-auth] [beatExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+flight-service    | 2025-12-08T19:40:06.892Z  INFO 1 --- [flight-service-auth] [ionShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application FLIGHT-SERVICE-AUTH with eureka with status DOWN
+flight-service    | 2025-12-08T19:40:06.893Z  INFO 1 --- [flight-service-auth] [ionShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1765222806892, current=DOWN, previous=UP]
+flight-service    | 2025-12-08T19:40:06.894Z  INFO 1 --- [flight-service-auth] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082: registering service...
+flight-service    | 2025-12-08T19:40:06.896Z DEBUG 1 --- [flight-service-auth] [foReplicator-%d] o.s.web.client.RestTemplate              : HTTP POST http://service-registry:8761/eureka/apps/FLIGHT-SERVICE-AUTH
+flight-service    | 2025-12-08T19:40:06.897Z DEBUG 1 --- [flight-service-auth] [foReplicator-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+flight-service    | 2025-12-08T19:40:06.902Z DEBUG 1 --- [flight-service-auth] [foReplicator-%d] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = 7e8de58f2ae5:flight-service-auth:8082, appName = FLIGHT-SERVICE-AUTH, hostName = 172.19.0.6, status = DOWN, ipAddr = 172.19.0.6, port = 8082, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@29c71935] as "application/json"
+flight-service    | 2025-12-08T19:40:06.903Z  INFO 1 --- [flight-service-auth] [ionShutdownHook] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+flight-service    | 2025-12-08T19:40:06.912Z  INFO 1 --- [flight-service-auth] [ netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+flight-service    | 2025-12-08T19:40:06.917Z DEBUG 1 --- [flight-service-auth] [foReplicator-%d] o.s.web.client.RestTemplate              : Response 204 NO_CONTENT
+flight-service    | 2025-12-08T19:40:06.918Z  INFO 1 --- [flight-service-auth] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_FLIGHT-SERVICE-AUTH/7e8de58f2ae5:flight-service-auth:8082 - registration status: 204
