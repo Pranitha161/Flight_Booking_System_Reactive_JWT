@@ -81,7 +81,7 @@ This project is a scalable, modular flight booking system built using Spring Boo
 ---
 ## System Workflow
 
-![Architecture Diagram](Architecture/SystemFlow.png)
+![Architecture Diagram](SystemFlow.png)
 
 
 
