@@ -2,6 +2,7 @@ package com.flightapp.demo.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,46 +23,43 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api")
 public class BookingController {
 	private final BookingService bookingService;
-
+	@PreAuthorize("hasRole('USER')")
 	@PostMapping("/booking/{flightId}")
-	public Mono<ResponseEntity<String>> bookTicket(@RequestHeader("X-User-Id") String userId,
-			@RequestHeader("X-Roles") String roles, @RequestBody Booking booking, @PathVariable String flightId) {
-		System.out.println(roles);
-		if (roles.contains("ROLE_ADMIN")) {
-			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
-		}
-		return bookingService.bookTicket(flightId, booking,roles);
+	public Mono<ResponseEntity<String>> bookTicket(
+			@RequestBody Booking booking, @PathVariable String flightId) {
+		
+		return bookingService.bookTicket(flightId, booking);
 	}
-
+	@PreAuthorize("isAuthenticated()")
 	@GetMapping("/ticket/{pnr}")
-	public Mono<ResponseEntity<Booking>> getByPnr(@RequestHeader("X-Roles") String roles, @PathVariable String pnr) {
-		if (!roles.contains("ROLE_USER")) {
-			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
-		}
+	public Mono<ResponseEntity<Booking>> getByPnr(@PathVariable String pnr) {
+		
 		return bookingService.getTicketsByPnr(pnr);
 	}
-
-	@GetMapping("/history/{emailId}")
-	public Mono<ResponseEntity<Booking>> getByEmailId(@RequestHeader("X-Email") String userEmail,   @RequestHeader("X-Roles") String roles,
+	@PreAuthorize("#emailId == authentication.token.claims['email'] or hasRole('ADMIN')")
+    @GetMapping("/history/{emailId}")
+	public Mono<ResponseEntity<Booking>> getByEmailId(
 			@PathVariable String emailId) {
-		if (!userEmail.equals(emailId)&&!roles.contains("ROLE_USER")) {
-			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
-		}
+	
 		return bookingService.getBookingsByEmail(emailId);
 	}
-
-	@DeleteMapping("/booking/cancel/{pnr}")
-	public Mono<ResponseEntity<String>> cancelBooking(@RequestHeader("X-User-Id") String userId,@RequestHeader("X-Roles") String roles,
+	
+	@PreAuthorize("hasRole('USER')")
+    @DeleteMapping("/booking/cancel/{pnr}")
+	public Mono<ResponseEntity<String>> cancelBooking(
 			@PathVariable String pnr) {
-		if (!roles.contains("ROLE_USER")) {
-			return Mono.just(ResponseEntity.status(HttpStatus.FORBIDDEN).build());
-		}
-		return bookingService.deleteBookingByPnr(pnr,roles);
+		
+		return bookingService.deleteBookingByPnr(pnr);
 	}
 
 	@GetMapping("/debug")
-	public String debugAuth(@RequestHeader("X-User-Id") String userId, @RequestHeader("X-Roles") String roles) {
-		return "User: " + userId + ", Roles: " + roles;
+	public String debugAuth() {
+		return "User: ";
 	}
+	@GetMapping("/debug-header")
+	public Mono<String> debugHeader(@RequestHeader(value = "Authorization", required = false) String auth) {
+	    return Mono.just("AUTH=" + auth);
+	}
+
 
 }

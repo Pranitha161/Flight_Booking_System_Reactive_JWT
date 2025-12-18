@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.flightapp.demo.entity.AuthResponse;
 import com.flightapp.demo.entity.User;
 
-@FeignClient(name = "user-service-auth")
+@FeignClient(name = "user-service")
 public interface UserClient {
-	@GetMapping("/auth/get/{passengerId}")
-	ResponseEntity<User> getPassengers(@PathVariable String passengerId);
 
-	@PostMapping("/auth/users/byIds")
-	List<User> getUsersByIds(@RequestBody List<String> ids);
+    @GetMapping("/auth/internal/email/{email}")
+    ResponseEntity<AuthResponse> internalGetPassenger(@PathVariable String email);
 
-	@GetMapping("/auth/get/email/{email}")
-	ResponseEntity<User> getPassenger(@PathVariable String email);
+    @PostMapping("/auth/internal/users/byIds")
+    List<User> internalGetUsersByIds(@RequestBody List<String> ids);
 }
+
+
