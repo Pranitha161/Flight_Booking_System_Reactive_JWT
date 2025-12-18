@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.flightapp.demo.entity.AirLine;
 
+import jakarta.validation.Valid;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -13,5 +14,7 @@ public interface AirLineService {
 	Mono<ResponseEntity<AirLine>> getById(String id);
 
 	Mono<AirLine> addFlightToAirline(String airlineId, String flightId);
+
+	Mono<ResponseEntity<String>> addAirline(@Valid AirLine airLine);
 
 }

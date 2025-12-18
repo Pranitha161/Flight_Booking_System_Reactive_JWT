@@ -21,4 +21,6 @@ public interface FlightService {
 	Mono<ResponseEntity<Flight>> getFlightById(String flightId);
 
 	Mono<ResponseEntity<Void>> updateFlight(String id, Flight flightTest);
+
+	Mono<ResponseEntity<String>> deleteFlight(String id);
 }

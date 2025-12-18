@@ -9,6 +9,7 @@ import com.flightapp.demo.entity.AirLine;
 import com.flightapp.demo.repository.AirLineRepository;
 import com.flightapp.demo.service.AirLineService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -24,13 +25,13 @@ public class AirLineServiceImplementation implements AirLineService {
 	}
 	@Override
 	public Mono<AirLine> addFlightToAirline(String airlineId, String flightId) {
-	    return airlineRepo.findById(airlineId) // Mono<Airline>
+	    return airlineRepo.findById(airlineId) 
 	        .flatMap(airline -> {
 	            if (airline.getFlightIds() == null) {
 	                airline.setFlightIds(new ArrayList<>());
 	            }
 	            airline.getFlightIds().add(flightId);
-	            return airlineRepo.save(airline); // Mono<Airline>
+	            return airlineRepo.save(airline); 
 	        });
 	}
 
@@ -39,6 +40,18 @@ public class AirLineServiceImplementation implements AirLineService {
 	public Mono<ResponseEntity<AirLine>> getById(String id) {
 		return airlineRepo.findById(id).map(ResponseEntity::ok)
 				.switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+	}
+	@Override
+	public Mono<ResponseEntity<String>> addAirline(@Valid AirLine airLine) {
+
+	    return airlineRepo.findByName(airLine.getName())
+	        .flatMap(existing ->
+	            Mono.just(ResponseEntity.badRequest().body("Airline already exists"))
+	        )
+	        .switchIfEmpty(
+	            airlineRepo.save(airLine)
+	                .then(Mono.just(ResponseEntity.ok("Airline added successfully")))
+	        );
 	}
 
 }
