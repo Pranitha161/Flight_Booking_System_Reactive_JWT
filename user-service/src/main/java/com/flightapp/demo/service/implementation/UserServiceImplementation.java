@@ -6,6 +6,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.flightapp.demo.entity.AuthResponse;
@@ -21,6 +23,7 @@ import reactor.core.publisher.Mono;
 public class UserServiceImplementation implements UserService {
 
 	private final UserRepository userRepo;
+	private final PasswordEncoder passwordEncoder;
 
 	private AuthResponse toResponse(User user) {
 		return new AuthResponse(user.getId(), user.getEmail(), user.getUsername(), user.getRole());
@@ -84,6 +87,27 @@ public class UserServiceImplementation implements UserService {
 
 	public Mono<List<User>> getUsersByIds(List<String> ids) {
 		return userRepo.findAllById(ids).collectList();
+	}
+
+	@Override
+	public Mono<ResponseEntity<String>> changePassword(String userId, String oldPassword, String newPassword) {
+		System.out.println(oldPassword+" "+newPassword+" "+userId);
+		
+		return userRepo.findById(userId).flatMap(user->{
+			System.out.println("Raw oldPassword: " + oldPassword);
+			System.out.println("Stored hash: " + user.getPassword());
+			System.out.println("Matches? " + passwordEncoder.matches(oldPassword, user.getPassword()));
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			System.out.println(encoder.matches("Pranitha@123", "$2a$10$dw1kM8J52.cp9sL071uNhuEkXOP1IKnKatEaP7Yq6rk0P1mH0Wnhq"));
+			System.out.println(encoder.matches("secret123", "$2a$10$dw1kM8J52.cp9sL071uNhuEkXOP1IKnKatEaP7Yq6rk0P1mH0Wnhq"));
+
+			if(!passwordEncoder.matches(oldPassword,user.getPassword())) {
+				System.out.println("hello");
+				return Mono.just(ResponseEntity.badRequest().body("{\"message\":\"Invalid current password\"}"));
+			}
+			user.setPassword(passwordEncoder.encode(newPassword));
+			return userRepo.save(user).thenReturn(ResponseEntity.ok("{\"message\":\"Password changed successfully\"}"));
+		}).switchIfEmpty(Mono.just(ResponseEntity.badRequest().body("{\"message\":\"User not found\"}")));
 	}
 
 }

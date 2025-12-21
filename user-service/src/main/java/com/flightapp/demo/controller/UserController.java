@@ -2,11 +2,10 @@ package com.flightapp.demo.controller;
 
 import java.util.List;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.demo.entity.AuthResponse;
+import com.flightapp.demo.entity.ChangePasswordRequest;
 import com.flightapp.demo.entity.User;
 import com.flightapp.demo.service.implementation.UserServiceImplementation;
 
@@ -62,8 +62,7 @@ public class UserController {
 			User updatedUser = responseEntity.getBody();
 
 			if (updatedUser == null) {
-				return Mono
-						.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+				return Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 			}
 
 			AuthResponse authResponse = new AuthResponse(updatedUser.getId(), updatedUser.getEmail(),
@@ -106,6 +105,13 @@ public class UserController {
 	@PostMapping("/internal/users/byIds")
 	public Mono<ResponseEntity<List<User>>> internalGetUsersByIds(@RequestBody List<String> ids) {
 		return userService.getUsersByIds(ids).map(ResponseEntity::ok).defaultIfEmpty(ResponseEntity.ok(List.of()));
+	}
+
+	@PostMapping("/change-password")
+	public Mono<ResponseEntity<String>> changePassword(@RequestBody ChangePasswordRequest request,
+			JwtAuthenticationToken jwtAuthToken) {
+		String userId = jwtAuthToken.getName();
+		return userService.changePassword(userId, request.getOldPassword(), request.getNewPassword());
 	}
 
 	@PreAuthorize("isAuthenticated()")
