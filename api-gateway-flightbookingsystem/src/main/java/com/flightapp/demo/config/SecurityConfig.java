@@ -26,6 +26,7 @@ public class SecurityConfig {
             .authorizeExchange(ex -> ex
             		.pathMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
                 .pathMatchers("auth-service/auth/login", "auth-service/auth/signup", "auth-service/auth/ping").permitAll()
+                .pathMatchers("/actuator/**").permitAll()
                 .anyExchange().authenticated()
             )
             .oauth2ResourceServer(oauth2 -> oauth2.jwt())
