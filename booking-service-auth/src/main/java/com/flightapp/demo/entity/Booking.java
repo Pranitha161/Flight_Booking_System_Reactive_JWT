@@ -4,6 +4,8 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.flightapp.demo.enums.BOOKING_STATUS;
+import com.flightapp.demo.enums.BOOKING_STATUS;
 import com.flightapp.demo.enums.MEAL_PREFERENCE;
 import com.flightapp.demo.enums.TRIP_TYPE;
 
@@ -31,6 +33,7 @@ public class Booking {
 	@Positive(message = "Seat count must be positive")
 	@Max(value = 10, message = "cannot book more than 10 tickets")
 	private int seatCount;
+	private BOOKING_STATUS status;
 	@NotNull(message = "Trip type is required")
 	private TRIP_TYPE tripType;
 	@NotNull(message = "Meal preference is required")

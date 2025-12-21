@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.flightapp.demo.entity.Booking;
 import com.flightapp.demo.entity.Flight;
 import com.flightapp.demo.entity.Seat;
-import com.flightapp.demo.entity.User;
+import com.flightapp.demo.enums.BOOKING_STATUS;
 import com.flightapp.demo.event.BookingEventProducer;
 import com.flightapp.demo.feign.FlightClient;
 import com.flightapp.demo.feign.UserClient;
@@ -47,49 +47,109 @@ public class BookingServiceImplementation implements BookingService {
 	}
 
 	@Override
-	public Mono<ResponseEntity<Booking>> getBookingsByEmail(String email) {
-		return bookingRepo.findByEmail(email).map(ResponseEntity::ok)
-				.switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+	public Mono<ResponseEntity<List<Booking>>> getBookingsByEmail(String email) {
+		return bookingRepo.findByEmail(email).collectList().map(bookings->ResponseEntity.ok(bookings));
 	}
+
+//	@Override
+//	@CircuitBreaker(name = "flightServiceCircuitBreaker", fallbackMethod = "fallbackDeleteBooking")
+//	public Mono<ResponseEntity<String>> deleteBookingByPnr(String pnr) {
+//		return bookingRepo.findByPnr(pnr)
+//				.flatMap(booking -> Mono.fromCallable(() -> flightClient.internalGetFlight(booking.getFlightId()))
+//						.subscribeOn(Schedulers.boundedElastic()).flatMap(flightResp -> {
+//							if (!flightResp.getStatusCode().is2xxSuccessful() || flightResp.getBody() == null) {
+//								return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\":\"Flight not found for booking PNR: " + pnr + "\"}"));}
+//							Flight flight = flightResp.getBody();
+//							ZoneId systemZone = ZoneId.systemDefault();
+//							ZonedDateTime now = ZonedDateTime.now(systemZone);
+//							ZonedDateTime departure = flight.getDepartureTime().atZone(systemZone);
+//							if (departure.isBefore(now)) { return Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"message\":\"Cannot delete booking. Flight already departed for PNR: " + pnr + "\"}")); } 
+//							else if (departure.isBefore(now.plusHours(24))) { 
+//								return Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"message\":\"Cannot delete booking within 24 hours of Departure for PNR: " + pnr + "\"}")); }
+//							return Mono.fromCallable(() -> flightClient.getSeatsByFlightId(booking.getFlightId()))
+//									.subscribeOn(Schedulers.boundedElastic()).flatMap(seatsResp -> {
+//										if (!seatsResp.getStatusCode().is2xxSuccessful() || seatsResp.getBody() == null
+//												|| seatsResp.getBody().isEmpty()) {
+//											return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
+//													.body("{\"message\":\"Seats not found for flight: " + booking.getFlightId() + "\"}"));}
+//										List<Seat> seats = seatsResp.getBody();
+//										List<String> seatNumbers = booking.getSeatNumbers();
+//										seats.stream().filter(s -> seatNumbers.contains(s.getSeatNumber()))
+//												.forEach(s -> s.setAvailable(true));
+//										flight.setAvailableSeats(flight.getAvailableSeats() + seatNumbers.size());
+//										return Mono.fromCallable(() -> {
+//											flightClient.updateSeats(booking.getFlightId(), seats);
+//											flightClient.internalUpdateFlight(booking.getFlightId(), flight);
+//											booking.setStatus(BOOKING_STATUS.CANCELLED);
+//											return bookingRepo.save(booking);
+//											
+//										}).subscribeOn(Schedulers.boundedElastic())
+////                                                        .then(Mono.fromRunnable(() -> eventProducer.bookingDeleted(booking)))
+//												.thenReturn(ResponseEntity.ok(
+//													            "{\"message\":\"Booking with PNR " + pnr + " deleted successfully. Seats released.\"}"
+//													        )
+//													    );});
+//}))
+//				.switchIfEmpty(Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\":\"Booking not found\"}")));
+//	}
 
 	@Override
 	@CircuitBreaker(name = "flightServiceCircuitBreaker", fallbackMethod = "fallbackDeleteBooking")
 	public Mono<ResponseEntity<String>> deleteBookingByPnr(String pnr) {
-		return bookingRepo.findByPnr(pnr)
-				.flatMap(booking -> Mono.fromCallable(() -> flightClient.internalGetFlight(booking.getFlightId()))
-						.subscribeOn(Schedulers.boundedElastic()).flatMap(flightResp -> {
-							if (!flightResp.getStatusCode().is2xxSuccessful() || flightResp.getBody() == null) {
-								return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\":\"Flight not found for booking PNR: " + pnr + "\"}"));}
-							Flight flight = flightResp.getBody();
-							ZoneId systemZone = ZoneId.systemDefault();
-							ZonedDateTime now = ZonedDateTime.now(systemZone);
-							ZonedDateTime departure = flight.getDepartureTime().atZone(systemZone);
-							if (departure.isBefore(now.plusHours(24))) {
-								return Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST)
-										.body("{\"message\":\"Cannot delete booking within 24 hours of departure for PNR: " + pnr + "\"}"));}
-							return Mono.fromCallable(() -> flightClient.getSeatsByFlightId(booking.getFlightId()))
-									.subscribeOn(Schedulers.boundedElastic()).flatMap(seatsResp -> {
-										if (!seatsResp.getStatusCode().is2xxSuccessful() || seatsResp.getBody() == null
-												|| seatsResp.getBody().isEmpty()) {
-											return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
-													.body("{\"message\":\"Seats not found for flight: " + booking.getFlightId() + "\"}"));}
-										List<Seat> seats = seatsResp.getBody();
-										List<String> seatNumbers = booking.getSeatNumbers();
-										seats.stream().filter(s -> seatNumbers.contains(s.getSeatNumber()))
-												.forEach(s -> s.setAvailable(true));
-										flight.setAvailableSeats(flight.getAvailableSeats() + seatNumbers.size());
-										return Mono.fromCallable(() -> {
-											flightClient.updateSeats(booking.getFlightId(), seats);
-											flightClient.internalUpdateFlight(booking.getFlightId(), flight);
-											return true;
-										}).subscribeOn(Schedulers.boundedElastic()).then(bookingRepo.delete(booking))
-//                                                        .then(Mono.fromRunnable(() -> eventProducer.bookingDeleted(booking)))
-												.thenReturn(ResponseEntity.ok(
-													            "{\"message\":\"Booking with PNR " + pnr + " deleted successfully. Seats released.\"}"
-													        )
-													    );});
-}))
-				.switchIfEmpty(Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\":\"Booking not found\"}")));
+	    return bookingRepo.findByPnr(pnr)
+	        .flatMap(booking -> Mono.fromCallable(() -> flightClient.internalGetFlight(booking.getFlightId()))
+	            .subscribeOn(Schedulers.boundedElastic())
+	            .flatMap(flightResp -> {
+	                if (!flightResp.getStatusCode().is2xxSuccessful() || flightResp.getBody() == null) {
+	                    return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                        .body("{\"message\":\"Flight not found for booking PNR: " + pnr + "\"}"));
+	                }
+
+	                Flight flight = flightResp.getBody();
+	                ZoneId systemZone = ZoneId.systemDefault();
+	                ZonedDateTime now = ZonedDateTime.now(systemZone);
+	                ZonedDateTime departure = flight.getDepartureTime().atZone(systemZone);
+
+	                if (departure.isBefore(now)) {
+	                    return Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	                        .body("{\"message\":\"Cannot delete booking. Flight already departed for PNR: " + pnr + "\"}"));
+	                } else if (departure.isBefore(now.plusHours(24))) {
+	                    return Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	                        .body("{\"message\":\"Cannot cancel booking within 24 hours of Departure for PNR: " + pnr + "\"}"));
+	                }
+
+	                return Mono.fromCallable(() -> flightClient.getSeatsByFlightId(booking.getFlightId()))
+	                    .subscribeOn(Schedulers.boundedElastic())
+	                    .flatMap(seatsResp -> {
+	                        if (!seatsResp.getStatusCode().is2xxSuccessful() || seatsResp.getBody() == null
+	                                || seatsResp.getBody().isEmpty()) {
+	                            return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                                .body("{\"message\":\"Seats not found for flight: " + booking.getFlightId() + "\"}"));
+	                        }
+
+	                        List<Seat> seats = seatsResp.getBody();
+	                        List<String> seatNumbers = booking.getSeatNumbers();
+	                        seats.stream()
+	                            .filter(s -> seatNumbers.contains(s.getSeatNumber()))
+	                            .forEach(s -> s.setAvailable(true));
+	                        flight.setAvailableSeats(flight.getAvailableSeats() + seatNumbers.size());
+
+	                        // Update flight and booking
+	                        flightClient.updateSeats(booking.getFlightId(), seats);
+	                        flightClient.internalUpdateFlight(booking.getFlightId(), flight);
+	                        booking.setStatus(BOOKING_STATUS.CANCELLED);
+
+	                        // Save booking and return response after persistence
+	                        return bookingRepo.save(booking)
+//	                        		.doOnNext(saved -> eventProducer.bookingDeleted(saved))
+	                            .map(saved -> ResponseEntity.ok(
+	                                "{\"message\":\"Booking with PNR " + pnr + " deleted successfully. Seats released.\"}"
+	                            ));
+	                    });
+	            })
+	        )
+	        .switchIfEmpty(Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
+	            .body("{\"message\":\"Booking not found\"}")));
 	}
 
 	public Mono<ResponseEntity<String>> fallbackDeleteBooking(String pnr, Throwable t) {
@@ -109,12 +169,12 @@ public class BookingServiceImplementation implements BookingService {
 					if (!emailUserResp.getStatusCode().is2xxSuccessful() || emailUserResp.getBody() == null) {
 						return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"message\":\"Invalid email\"}"));
 					}
-					return Mono.fromCallable(() -> userClient.internalGetUsersByIds(booking.getUserIds()))
-							.subscribeOn(Schedulers.boundedElastic()).flatMap(usersByIds -> {
-								if (usersByIds == null || usersByIds.size() != booking.getUserIds().size()) {
-									return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
-											.body("{\"message\":\"One or more passenger IDs are invalid\"}"));
-								}
+//					return Mono.fromCallable(() -> userClient.internalGetUsersByIds(booking.getUserIds()))
+//							.subscribeOn(Schedulers.boundedElastic()).flatMap(usersByIds -> {
+//								if (usersByIds == null || usersByIds.size() != booking.getUserIds().size()) {
+//									return Mono.just(ResponseEntity.status(HttpStatus.NOT_FOUND)
+//											.body("{\"message\":\"One or more passenger IDs are invalid\"}"));
+//								}
 								return Mono.fromCallable(() -> flightClient.internalGetFlight(flightId))
 								.subscribeOn(Schedulers.boundedElastic()).flatMap(flightResp -> {
 								if (!flightResp.getStatusCode().is2xxSuccessful()|| flightResp.getBody() == null) {
@@ -148,6 +208,7 @@ public class BookingServiceImplementation implements BookingService {
 														return Mono.fromCallable(() -> {
 															flightClient.updateSeats(flightId, seats);
 															flightClient.internalUpdateFlight(flightId, flight);
+															booking.setStatus(BOOKING_STATUS.CONFIRMED);
 															return true;
 														}).subscribeOn(Schedulers.boundedElastic())
 																.then(bookingRepo.save(booking))
@@ -158,8 +219,8 @@ public class BookingServiceImplementation implements BookingService {
 													});
 										});
 							});
-				});
-	}
+				};
+	
 
 	public Mono<ResponseEntity<String>> fallbackGetFlight(String flightId, Booking booking, Throwable t) {
 		return Mono.just(ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)

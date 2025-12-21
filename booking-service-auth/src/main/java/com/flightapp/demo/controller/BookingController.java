@@ -1,5 +1,7 @@
 package com.flightapp.demo.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,6 +18,7 @@ import com.flightapp.demo.entity.Booking;
 import com.flightapp.demo.service.BookingService;
 
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -38,7 +41,7 @@ public class BookingController {
 	}
 	@PreAuthorize("#emailId == authentication.token.claims['email'] or hasRole('ADMIN')")
     @GetMapping("/history/{emailId}")
-	public Mono<ResponseEntity<Booking>> getByEmailId(
+	public Mono<ResponseEntity<List<Booking>>> getByEmailId(
 			@PathVariable String emailId) {
 	
 		return bookingService.getBookingsByEmail(emailId);
