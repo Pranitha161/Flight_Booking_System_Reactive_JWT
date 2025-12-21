@@ -141,7 +141,7 @@ public class BookingServiceImplementation implements BookingService {
 
 	                        // Save booking and return response after persistence
 	                        return bookingRepo.save(booking)
-//	                        		.doOnNext(saved -> eventProducer.bookingDeleted(saved))
+	                        		.doOnNext(saved -> eventProducer.bookingDeleted(saved))
 	                            .map(saved -> ResponseEntity.ok(
 	                                "{\"message\":\"Booking with PNR " + pnr + " deleted successfully. Seats released.\"}"
 	                            ));
@@ -212,8 +212,8 @@ public class BookingServiceImplementation implements BookingService {
 															return true;
 														}).subscribeOn(Schedulers.boundedElastic())
 																.then(bookingRepo.save(booking))
-//                                                                .then(Mono.fromRunnable(() ->
-//                                                                        eventProducer.bookingCreated(booking)))
+                                                                .then(Mono.fromRunnable(() ->
+                                                                        eventProducer.bookingCreated(booking)))
 																.thenReturn(ResponseEntity.status(HttpStatus.CREATED)
 																		.body("{\"message\":\"Booking created successfully\"," + "\"pnr\":\"" + booking.getPnr() + "\"," + "\"totalAmount\":" + booking.getTotalAmount() + "}"));
 													});
