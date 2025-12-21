@@ -1,84 +1,30 @@
 version: '3.8'
-
 services:
-  service-registry:
+  eureka:
     build: ./service-registry-flightbookingsystem
-    container_name: service-registry
+    container_name: eureka
     ports:
       - "8761:8761"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-
-  api-gateway:
-    build: ./api-gateway-flightbookingsystem
-    container_name: api-gateway
-    ports:
-      - "8765:8765"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka
-      - JWT_SECRET=mysuperlongsecretkeymysuperlongsecretkey123456
-      - SECURITY_JWT_EXPIRATION_MINUTES=30
-    depends_on:
-      - service-registry
 
   config-server:
     build: ./config-server-flightbookingsystem
     container_name: config-server
     ports:
       - "8888:8888"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/Pranitha161/flightbookingsystem-config-server
-
-  user-service:
-    build: ./user-service
-    container_name: user-service
-    ports:
-      - "8083:8083"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/usermicroservicejwtdb
-      - JWT_SECRET=mysuperlongsecretkeymysuperlongsecretkey123456
-      - SECURITY_JWT_EXPIRATION_MINUTES=60
-      - SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka
     depends_on:
-      - mongo
-      - config-server
-      - service-registry
+      - eureka
 
-  booking-service:
-    build: ./booking-service-auth
-    container_name: booking-service
+  api-gateway:
+    build: ./api-gateway-flightbookingsystem
+    container_name: api-gateway
     ports:
-      - "8081:8081"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - MAIL_HOST=smtp.gmail.com
-      - MAIL_PORT=587
-      - MAIL_USERNAME=varakanthampranitha@gmail.com
-      - MAIL_PASSWORD=zzolbmauinikyjnf
+      - "8080:8080"
     depends_on:
-      - kafka
-      - config-server
-      - service-registry
-
-  flight-service:
-    build: ./flight-service-auth
-    container_name: flight-service
-    ports:
-      - "8082:8082"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/flightmicroservicedb
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://service-registry:8761/eureka
-    depends_on:
-      - mongo
-      - service-registry
+      - eureka
+      - auth-service
+      - booking-service-auth
+      - flight-service-auth
+      - user-service
 
   mongo:
     image: mongo:6.0
@@ -93,7 +39,6 @@ services:
     container_name: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
 
@@ -109,6 +54,51 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+      - eureka
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  flight-service-auth:
+    build: ./flight-service-auth
+    container_name: flight-service-auth
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mongo
+      - eureka
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  user-service:
+    build: ./user-service
+    container_name: user-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mongo
+      - eureka
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  booking-service-auth:
+    build: ./booking-service-auth
+    container_name: booking-service-auth
+    ports:
+      - "8084:8084"
+    depends_on:
+      - mongo
+      - kafka
+      - eureka
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
 
 volumes:
   mongo_data:
