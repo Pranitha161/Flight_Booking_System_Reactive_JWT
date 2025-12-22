@@ -58,7 +58,7 @@ This project is a scalable, modular flight booking system built using Spring Boo
 
 ## Infrastructure
 - **MongoDB**: Data persistence for Auth, Booking, Flight.
-- **Config Server**: Centralized configuration ([Config-Server](https://github.com/Pranitha161/flightbookingsystem-config-server))
+- **Config Server**: Centralized configuration ([Config-Server](https://github.com/Pranitha161/flight-booking-system-jwt-config-server))
 - **Eureka Server**: Service discovery.
 - **Kafka Broker + Zookeeper**: Event streaming backbone.
 - **API Gateway (Spring Cloud Gateway)**: Single entry point for routing requests, JWT validation, and traffic control.
