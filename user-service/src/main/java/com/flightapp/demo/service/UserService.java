@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 public interface UserService {
 
-	Mono<ResponseEntity<String>> changePassword(String userId,String oldPassword,String newPassword);
+	Mono<ResponseEntity<String>> changePassword(String userName,String oldPassword,String newPassword);
 
 	Mono<ResponseEntity<AuthResponse>> getPassengerById(String passengerId);
 
