@@ -1,5 +1,8 @@
 package com.flightapp.demo.service;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,6 +34,7 @@ public class AuthService {
 					ResponseEntity.status(HttpStatus.CONFLICT).body(new ApiResponse(false, "Username already exists")));
 		}).switchIfEmpty(Mono.defer(() -> {
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
+			user.setPasswordLastChanged(LocalDateTime.now());
 			return userRepo.save(user).map(saved -> {
 				return ResponseEntity.status(HttpStatus.CREATED)
 						.body(new ApiResponse(true, "User created with id: " + saved.getId()));
@@ -44,6 +48,11 @@ public class AuthService {
 				return Mono.just(ResponseEntity.status(HttpStatus.UNAUTHORIZED)
 						.body(new ApiResponse(false, "Invalid credentials")));
 			}
+			if (existing.getPasswordLastChanged() != null) { 
+				long days = ChronoUnit.DAYS.between(existing.getPasswordLastChanged(), LocalDateTime.now()); 
+				if (days > 90) 
+				{ return Mono.just(ResponseEntity.ok(new ApiResponse(false, "PASSWORD_EXPIRED"))); 
+				} }
 
 			String token = jwtService.generateToken(existing);
 			return Mono.just(ResponseEntity.ok(new ApiResponse(true, token)));
