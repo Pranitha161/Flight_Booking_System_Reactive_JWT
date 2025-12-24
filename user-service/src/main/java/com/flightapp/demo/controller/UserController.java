@@ -108,10 +108,9 @@ public class UserController {
 	}
 
 	@PostMapping("/change-password")
-	public Mono<ResponseEntity<String>> changePassword(@RequestBody ChangePasswordRequest request,
-			JwtAuthenticationToken jwtAuthToken) {
-		String userId = jwtAuthToken.getName();
-		return userService.changePassword(userId, request.getOldPassword(), request.getNewPassword());
+	public Mono<ResponseEntity<String>> changePassword(@RequestBody ChangePasswordRequest request) {
+		
+		return userService.changePassword(request.getUserName(), request.getOldPassword(), request.getNewPassword());
 	}
 
 	@PreAuthorize("isAuthenticated()")
