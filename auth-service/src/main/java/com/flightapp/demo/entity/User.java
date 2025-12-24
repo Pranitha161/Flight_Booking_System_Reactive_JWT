@@ -1,5 +1,7 @@
 package com.flightapp.demo.entity;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,4 +18,5 @@ public class User {
     private String role;
     private int age;
     private String gender;
+    private LocalDateTime passwordLastChanged;
 }

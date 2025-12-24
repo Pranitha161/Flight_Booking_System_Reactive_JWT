@@ -1,5 +1,7 @@
 package com.flightapp.demo.entity;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,5 +24,6 @@ public class User {
 	private int age;
 	@NotBlank(message = "Gender is required of type (Male/Female)")
 	private String gender;
+	private LocalDateTime passwordLastChanged; 
 
 }
