@@ -1,5 +1,6 @@
 package com.flightapp.demo.service.implementation;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
@@ -90,10 +91,10 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	@Override
-	public Mono<ResponseEntity<String>> changePassword(String userId, String oldPassword, String newPassword) {
-		System.out.println(oldPassword+" "+newPassword+" "+userId);
+	public Mono<ResponseEntity<String>> changePassword(String userName, String oldPassword, String newPassword) {
+
 		
-		return userRepo.findById(userId).flatMap(user->{
+		return userRepo.findByUsername(userName).flatMap(user->{
 			System.out.println("Raw oldPassword: " + oldPassword);
 			System.out.println("Stored hash: " + user.getPassword());
 			System.out.println("Matches? " + passwordEncoder.matches(oldPassword, user.getPassword()));
@@ -106,6 +107,7 @@ public class UserServiceImplementation implements UserService {
 				return Mono.just(ResponseEntity.badRequest().body("{\"message\":\"Invalid current password\"}"));
 			}
 			user.setPassword(passwordEncoder.encode(newPassword));
+			user.setPasswordLastChanged(LocalDateTime.now());
 			return userRepo.save(user).thenReturn(ResponseEntity.ok("{\"message\":\"Password changed successfully\"}"));
 		}).switchIfEmpty(Mono.just(ResponseEntity.badRequest().body("{\"message\":\"User not found\"}")));
 	}
