@@ -89,6 +89,10 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
       SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/authdb
+      MAIL_HOST: ${MAIL_HOST} 
+      MAIL_PORT: ${MAIL_PORT} 
+      MAIL_USERNAME: ${MAIL_USERNAME} 
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
 
   booking-service-auth:
     build: ./booking-service-auth
