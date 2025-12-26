@@ -1,10 +1,10 @@
 package com.flightapp.demo.entity;
 
 import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.flightapp.demo.enums.BOOKING_STATUS;
 import com.flightapp.demo.enums.BOOKING_STATUS;
 import com.flightapp.demo.enums.MEAL_PREFERENCE;
 import com.flightapp.demo.enums.TRIP_TYPE;
@@ -46,4 +46,5 @@ public class Booking {
 	@Size(min = 1, message = "At least one seat number must be provided")
 	private List<String> seatNumbers;
 	private float totalAmount;
+
 }
