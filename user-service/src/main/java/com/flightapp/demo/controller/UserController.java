@@ -1,6 +1,7 @@
 package com.flightapp.demo.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -109,8 +110,18 @@ public class UserController {
 
 	@PostMapping("/change-password")
 	public Mono<ResponseEntity<String>> changePassword(@RequestBody ChangePasswordRequest request) {
-		
+
 		return userService.changePassword(request.getUserName(), request.getOldPassword(), request.getNewPassword());
+	}
+
+	@PostMapping("/request-reset")
+	public Mono<ResponseEntity<String>> requestReset(@RequestBody Map<String, String> body) {
+		return userService.requestPasswordReset(body.get("email"));
+	}
+
+	@PostMapping("/reset-password")
+	public Mono<ResponseEntity<String>> resetPassword(@RequestBody Map<String, String> body) {
+		return userService.resetPassword(body.get("token"), body.get("newPassword"));
 	}
 
 	@PreAuthorize("isAuthenticated()")

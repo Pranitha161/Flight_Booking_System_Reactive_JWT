@@ -1,7 +1,11 @@
 package com.flightapp.demo.service.implementation;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,6 +18,7 @@ import org.springframework.stereotype.Service;
 import com.flightapp.demo.entity.AuthResponse;
 import com.flightapp.demo.entity.User;
 import com.flightapp.demo.repository.UserRepository;
+import com.flightapp.demo.service.EmailService;
 import com.flightapp.demo.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,6 +30,7 @@ public class UserServiceImplementation implements UserService {
 
 	private final UserRepository userRepo;
 	private final PasswordEncoder passwordEncoder;
+	private final EmailService emailService;
 
 	private AuthResponse toResponse(User user) {
 		return new AuthResponse(user.getId(), user.getEmail(), user.getUsername(), user.getRole());
@@ -59,7 +65,8 @@ public class UserServiceImplementation implements UserService {
 		return userRepo.findById(id).flatMap(existing ->
 
 		userRepo.findByUsername(passenger.getUsername()).filter(other -> !other.getId().equals(id))
-				.flatMap(conflict -> Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).<User>build())).switchIfEmpty(
+				.flatMap(conflict -> Mono.just(ResponseEntity.status(HttpStatus.BAD_REQUEST).<User>build()))
+				.switchIfEmpty(
 
 						Mono.defer(() -> {
 							existing.setRole(passenger.getRole());
@@ -93,16 +100,17 @@ public class UserServiceImplementation implements UserService {
 	@Override
 	public Mono<ResponseEntity<String>> changePassword(String userName, String oldPassword, String newPassword) {
 
-		
-		return userRepo.findByUsername(userName).flatMap(user->{
+		return userRepo.findByUsername(userName).flatMap(user -> {
 			System.out.println("Raw oldPassword: " + oldPassword);
 			System.out.println("Stored hash: " + user.getPassword());
 			System.out.println("Matches? " + passwordEncoder.matches(oldPassword, user.getPassword()));
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-			System.out.println(encoder.matches("Pranitha@123", "$2a$10$dw1kM8J52.cp9sL071uNhuEkXOP1IKnKatEaP7Yq6rk0P1mH0Wnhq"));
-			System.out.println(encoder.matches("secret123", "$2a$10$dw1kM8J52.cp9sL071uNhuEkXOP1IKnKatEaP7Yq6rk0P1mH0Wnhq"));
+			System.out.println(
+					encoder.matches("Pranitha@123", "$2a$10$dw1kM8J52.cp9sL071uNhuEkXOP1IKnKatEaP7Yq6rk0P1mH0Wnhq"));
+			System.out.println(
+					encoder.matches("secret123", "$2a$10$dw1kM8J52.cp9sL071uNhuEkXOP1IKnKatEaP7Yq6rk0P1mH0Wnhq"));
 
-			if(!passwordEncoder.matches(oldPassword,user.getPassword())) {
+			if (!passwordEncoder.matches(oldPassword, user.getPassword())) {
 				System.out.println("hello");
 				return Mono.just(ResponseEntity.badRequest().body("{\"message\":\"Invalid current password\"}"));
 			}
@@ -112,4 +120,27 @@ public class UserServiceImplementation implements UserService {
 		}).switchIfEmpty(Mono.just(ResponseEntity.badRequest().body("{\"message\":\"User not found\"}")));
 	}
 
+	public Mono<ResponseEntity<String>> requestPasswordReset(String email) {
+		return userRepo.findByEmail(email).flatMap(user -> {
+			String token = UUID.randomUUID().toString();
+			user.setResetToken(token);
+			user.setResetTokenExpiry(Instant.now().plus(Duration.ofMinutes(15)));
+
+			return userRepo.save(user).doOnSuccess(savedUser -> emailService.sendResetLink(savedUser.getEmail(), token))
+					.thenReturn(ResponseEntity.ok("{\"message\":\"Reset link sent to your email\"}"));
+		}).switchIfEmpty(Mono.just(ResponseEntity.badRequest().body("{\"message\":\"User not found\"}")));
+	}
+
+	public Mono<ResponseEntity<String>> resetPassword(String token, String newPassword) {
+		return userRepo.findByResetToken(token).flatMap(user -> {
+			if (user.getResetTokenExpiry() == null || user.getResetTokenExpiry().isBefore(Instant.now())) {
+				return Mono.just(ResponseEntity.badRequest().body("{\"message\":\"Invalid or expired token\"}"));
+			}
+			user.setPassword(passwordEncoder.encode(newPassword));
+			user.setPasswordLastChanged(LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()));
+			user.setResetToken(null);
+			user.setResetTokenExpiry(null);
+			return userRepo.save(user).thenReturn(ResponseEntity.ok("{\"message\":\"Password reset successful\"}"));
+		}).switchIfEmpty(Mono.just(ResponseEntity.badRequest().body("{\"message\":\"Invalid or expired token\"}")));
+	}
 }
