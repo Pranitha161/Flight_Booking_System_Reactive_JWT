@@ -1,5 +1,6 @@
 package com.flightapp.demo.entity;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
@@ -25,5 +26,8 @@ public class User {
 	@NotBlank(message = "Gender is required of type (Male/Female)")
 	private String gender;
 	private LocalDateTime passwordLastChanged; 
+	private String resetToken;
+	private Instant resetTokenExpiry;
+
 
 }

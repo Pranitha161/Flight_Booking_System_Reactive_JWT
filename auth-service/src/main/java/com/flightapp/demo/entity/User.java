@@ -1,5 +1,6 @@
 package com.flightapp.demo.entity;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
@@ -19,4 +20,7 @@ public class User {
     private int age;
     private String gender;
     private LocalDateTime passwordLastChanged;
+    private String resetToken;
+    private Instant resetTokenExpiry;
+
 }
