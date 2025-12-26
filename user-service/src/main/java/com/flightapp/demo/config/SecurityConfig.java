@@ -24,7 +24,7 @@ public class SecurityConfig {
 	public SecurityWebFilterChain security(ServerHttpSecurity http) {
 		return http.csrf(ServerHttpSecurity.CsrfSpec::disable)
 				.authorizeExchange(ex -> ex.pathMatchers("/auth/ping").permitAll().pathMatchers("/auth/internal/**").permitAll()
-						.pathMatchers("/auth/change-password").permitAll()
+						.pathMatchers("/auth/change-password","/auth/request-reset","/auth/reset-password","/auth/reset-password/**").permitAll()
 						.anyExchange().authenticated())
 				.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwt -> jwt.jwtDecoder(jwtDecoder(secret)))).build();
 	}
