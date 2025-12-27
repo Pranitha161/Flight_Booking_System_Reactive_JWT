@@ -1,6 +1,6 @@
 # Flight Booking System – Dockerized Microservices Architecture
 
-This project is a scalable, modular flight booking system built using Spring Boot microservices. It demonstrates centralized authentication, role-based access control (RBAC), service discovery, and inter-service communication using Feign clients and Kafka.
+This project is a scalable, modular flight booking system built using Spring Boot microservices. It demonstrates centralized authentication, role-based access control (RBAC), service discovery, and inter-service communication using Feign clients and Kafka and Email Service.
 
 ---
 
